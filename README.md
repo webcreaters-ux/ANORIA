@@ -1,64 +1,56 @@
 # ANORIA — The Shards of Dawn
 
-**ANORIA** is a mobile-first fantasy adventure game prototype for 2026. It is built as a dependency-free web game so it can run on GitHub Pages, Vercel, Netlify, or inside a mobile WebView/wrapper.
+**ANORIA 2026** is a mobile-first fantasy action RPG prototype designed to run on the web and package for Android with Capacitor.
 
-## Included in this build
+## RPG systems in v2
 
-- Cinematic fantasy title screen
-- Five connected locations and chapters
-- Original story, dialogue and branching choices
-- Main hero Aria and companions Lyra, Torren and Nyx
-- Night King final encounter
-- XP, gold, HP, mana and Dawn Shard progression
-- Inventory, journal and world map
-- Save/continue using localStorage
-- Procedural Web Audio sound effects; no audio files required
-- Responsive mobile/desktop controls
-- Procedural CSS/SVG-like scene art; no copyrighted game assets
-- 2026 branding and game metadata
+- Animated CSS character sprites for Aria and enemies
+- Five cinematic regions: Whispering Vale, Emberfall Village, Sunken Ruins, Frostspire Pass and Obsidian Citadel
+- NPC companions: Lyra, Torren and Nyx
+- Quest log, world map, journal and automatic save/continue
+- Weapons: Dawnblade, Moonbow and Starstaff with rarity and power
+- Abilities: Slash, Arcane Bolt, Guard and Moon Heal
+- Real combat HUD, enemy HP, player HP/mana, damage and healing
+- Night King boss with three phases and escalating encounters
+- Procedural particle effects, hit/walk/boss animations and location themes
+- Procedural Web Audio sound effects plus looping fantasy-style music motif
+- Loading screen, settings, volume, sound/music toggles and reset save
+- PWA manifest, offline service worker and install prompt
+- Android-ready Capacitor configuration with app id `com.anoria.rpg2026`
+- 2026 icon and responsive mobile controls
 
-## Play locally
+## Run
 
-Open `index.html` in a modern browser. For best results use a small local server or deploy the repository to GitHub Pages.
+Open `index.html` in a modern browser or deploy the repository to GitHub Pages/Vercel. A local HTTP server is recommended so the service worker can run.
 
-## Publish with GitHub Pages
+## PWA
 
-1. Open repository **Settings → Pages**.
-2. Select **Deploy from a branch**.
-3. Select `main` and `/ (root)`.
-4. Save and open the generated Pages URL.
+The project includes `manifest.webmanifest`, `sw.js`, and `assets/icon.svg`. On Android Chrome, use **Install app** / **Add to Home screen**.
 
-## Roadmap for a larger ANORIA release
+## Android packaging
 
-### Chapter expansion
-- Chapter 2: Emberfall rebellion
-- Chapter 3: Sunken Moon Temple
-- Chapter 4: Frostspire war
-- Chapter 5: Obsidian Citadel
-- Chapter 6: The Star Beyond Time
+Install Node.js and run:
 
-### Production assets
-Replace the procedural placeholders with original licensed/generated assets in:
+```bash
+npm install
+npx cap add android
+npx cap sync android
+npx cap open android
+```
 
-`assets/images/` — character portraits, environments, UI icons
-`assets/audio/` — music and SFX
-`assets/fonts/` — licensed fonts
+Then build the APK/AAB from Android Studio. The repository contains the web game and Capacitor configuration; the generated `android/` project is intentionally not committed.
 
-Keep third-party licenses in `CREDITS.md`.
+## Asset policy
 
-### Future systems
-- Tile-based exploration
-- Real-time combat
-- Boss phases and skills
-- Equipment rarity
-- Crafting
-- NPC reputation
-- Side quests
-- Achievements
-- Cloud save
-- PWA/offline install
-- Android/iOS wrapper
+The current game uses original CSS/vector-style visuals, emoji UI characters and generated Web Audio tones. Do not add ripped game art, copyrighted characters, music or logos without permission. For a commercial release, use original or properly licensed assets and record them in `CREDITS.md`.
 
-## Important
+## Next production upgrades
 
-This repository intentionally uses generated CSS shapes, emoji glyphs and Web Audio tones instead of redistributing copyrighted fantasy artwork or music. For a commercial release, use assets that you own or have a valid license to distribute.
+- Full sprite-sheet animation art
+- Larger tile-based maps and collision
+- More enemy families and loot tables
+- Crafting, equipment stats and rarity effects
+- Side quests, reputation and achievements
+- Cloud saves and account system
+- Native Android permissions, splash screen and store signing
+- Original music tracks and recorded SFX packs
